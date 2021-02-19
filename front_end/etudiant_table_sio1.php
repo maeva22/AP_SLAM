@@ -7,11 +7,24 @@
             $etudiantsProfRefDemarche,
             $etudiantsProfSpeDemarche
         );
+        $choix_titre = 0;
         foreach ($request_table as $table) {
-            if (!empty($table)) { ?>
+            if (!empty($table)) { 
+                        $choix_titre+=1;?>
             <!-- Tableau pour les sio 1 -->
                 <div class="table-responsive">
                     <table class="table">
+                   <?php  if($choix_titre==0) {
+                            echo'<h5 class="card-title">Liste de votre classe référente</h5> ';
+                   }
+                   if($choix_titre==1) {
+                    echo'<h5 class="card-title">Liste des étudiants dont vous êtes référent</h5> ';
+                   }
+                   if($choix_titre==2) {   
+                    echo'<h5 class="card-title">Liste des étudiants de votre spécialité</h5> ';   
+                   }
+                       ?>
+
                         <thead>
                             <tr>
                                 <th data-sortable="true" data-field="nom" scope="col">Nom</th>
