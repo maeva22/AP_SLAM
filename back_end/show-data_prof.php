@@ -21,7 +21,7 @@ $stmt = $db->prepare(
             SALARIE.ID_ENTREPRISE=ENTREPRISE.ID_ENTREPRISE AND
            STAGE.ID_ETUDIANT=ETUDIANT.ID_ETUDIANT AND 
            ETUDIANT.ID_SPECIALITE=SPECIALITE.ID_SPECIALITE AND 
-           SPECIALITE.ID_PROF=:id    AND ETAT !='OK' 
+           SPECIALITE.ID_PROF=:id    AND ETAT ='AT' 
            ORDER BY NOM_ETUDIANT DESC;"
 );
 $stmt->bindValue(':id', $id_courant, PDO::PARAM_INT);
