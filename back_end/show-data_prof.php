@@ -92,15 +92,17 @@ $stmt->execute();
 $etudiantsProfSimpleDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countDemarcheProfsimple = count($etudiantsProfSimpleDemarche);
 
-// Conservation des démarches non nulles selon le ype du professeur
-if ($countDemarcheProfref>=1) {
-    $demarches=$etudiantsProfRefDemarche;
-} else if ($countDemarcheProfspe>=1) {
-           $demarches=$etudiantsProfSpeDemarche;
-} else { 
-    $demarches=$etudiantsProfSimpleDemarche;
-}
-
+$stmt = $db->prepare(
+    "SELECT ID_ETUDIANT,ID_DEMARCHE, NOM_ENTREPRISE,VILLE_ENTREPRISE, ADRESSE_ENTREPRISE,CP_ENTREPRISE,TEL_ENTREPRISE,EMAIL_ENTREPRISE,NOM_SALARIE,PRENOM_SALARIE,TEL_SALARIE,EMAIL_SALARIE,DATE_DEMARCHE,COMMENTAIRE,LIBELLE_MOYEN 
+        FROM demarche
+        INNER JOIN salarie ON demarche.ID_SALARIE =  salarie.ID_SALARIE
+        INNER JOIN entreprise ON salarie.ID_ENTREPRISE = entreprise.ID_ENTREPRISE
+        INNER JOIN moyencom ON demarche.ID_MOYEN = moyencom.ID_MOYEN
+        ORDER BY DATE_DEMARCHE  DESC"
+  );
+  $stmt->execute(); 
+  $demarchesProf = $stmt->fetchAll(PDO::FETCH_BOTH);
+  $countDemarches= count($demarchesProf);
 
 
 
