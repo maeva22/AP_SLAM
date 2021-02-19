@@ -29,7 +29,7 @@ $stmt->execute();
 $stageAttente = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countStageAttente = count($stageAttente);
 
-// Recherche des démarches effectuées par les étudiants de BTS SIO1  
+// Recherche des démarches effectuées par les étudiants de BTS  
 // pour le professeur de référence d'élève
 $stmt = $db->prepare(
     "SELECT   etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,COUNT(ID_DEMARCHE)  AS NB_DEM  
@@ -44,7 +44,9 @@ $stmt->execute();
 $etudiantsProfRefDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countDemarcheProfref = count($etudiantsProfRefDemarche);
 
-
+// Recherche des démarches effectuées par les étudiants de BTS
+// décompte des démarches effectuées par chaque étudiant 
+// pour un professeur référent de classe
 $stmt = $db->prepare(
     "SELECT   etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,COUNT(ID_DEMARCHE)  AS NB_DEM  
         FROM etudiant 
@@ -59,7 +61,7 @@ $classeProfRefDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countDemarcheProfrefclasse = count($classeProfRefDemarche);
 
 
-// Recherche des démarches effectuées par les étudiants de BTS SIO1
+// Recherche des démarches effectuées par les étudiants de BTS
 // décompte des démarches effectuées par chaque étudiant 
 // pour un professeur de spécialité
 $stmt = $db->prepare(
@@ -76,7 +78,7 @@ $stmt->execute();
 $etudiantsProfSpeDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countDemarcheProfspe = count($etudiantsProfSpeDemarche);
 
-// Recherche des démarches effectuées par les étudiants de BTS SIO1
+// Recherche des démarches effectuées par les étudiants de BTS
 // décompte des démarches effectuées par chaque étudiant associé à un simple professeur
 $stmt = $db->prepare(
     "SELECT  NOM_ETUDIANT,PRENOM_ETUDIANT,COUNT(ID_DEMARCHE)  AS NB_DEM  
@@ -92,6 +94,7 @@ $stmt->execute();
 $etudiantsProfSimpleDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countDemarcheProfsimple = count($etudiantsProfSimpleDemarche);
 
+//Requête permettant d'afficher les démarches d'un étudiant choisi
 $stmt = $db->prepare(
     "SELECT ID_ETUDIANT,ID_DEMARCHE, NOM_ENTREPRISE,VILLE_ENTREPRISE, ADRESSE_ENTREPRISE,CP_ENTREPRISE,TEL_ENTREPRISE,EMAIL_ENTREPRISE,NOM_SALARIE,PRENOM_SALARIE,TEL_SALARIE,EMAIL_SALARIE,DATE_DEMARCHE,COMMENTAIRE,LIBELLE_MOYEN 
         FROM demarche

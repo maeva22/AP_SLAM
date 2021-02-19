@@ -24,7 +24,7 @@ include '../back_end/show-data_etudiant.php';
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Liste des démarches de <?php echo str_replace("_", " ", $_GET['etudiant']); ?></h5>
+                                <h5 class="card-title">Liste des démarches de <?php echo str_replace("_", " ", $_GET['etudiant']); ?></h5><!--str_replace permet de transformer le nom et le prenom en texte lisible (enlève le underscore de separation) -->
                                 <?php if($demarchesProf){?>
                                 <div class="table-responsive">
                                 <!-- Tableau pour afficher toutes les démarches d'un élève -->

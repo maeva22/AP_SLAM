@@ -54,11 +54,10 @@ include '../back_end/show-data_prof.php';
                                                     <td>' . $row['DATE_FIN'] . '</td>
                                                     <td>
                                                         <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
-                                                        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-                                                        <label class="btn btn-outline-success" for="success-outlined">Accepter</label>
-
-                                                        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                                                        <label class="btn btn-outline-danger" for="danger-outlined">Refuser</label>
+                                                        <input type="radio" class="btn-check" name="btnradio'.$row['ID_STAGE'].'" id="btnradio1" autocomplete="off" value="OK" checked>
+                                                        <label class="btn btn-outline-success" for="btnradio1" >Valider</label>
+                                                        <input type="radio" class="btn-check" name="btnradio'.$row['ID_STAGE'].'" id="btnradio2" autocomplete="off" value="RE" >
+                                                        <label class="btn btn-outline-danger" for="btnradio2"  >Refuser</label>
 
                                                 
                                                         </div>
