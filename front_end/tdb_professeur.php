@@ -89,35 +89,9 @@
     <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Etudiants  de SIO1 et synthèse de leurs démarches</h5>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                                            <tr>
-
-                                                <th scope="col">Nom</th>
-                                                <th scope="col">Prénom</th>
-                                                <th scope="col">Nombres de démarches </th>
-                                                <th scope="col">Actions</th>
-                                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ( $demarches as $row ) { 
-                            echo' 
-                                     <tr>
-                                         <td>'. $row['NOM_ETUDIANT'].'</td>
-                                         <td>'. $row['PRENOM_ETUDIANT'].'</td>
-                                         <td>'. $row['NB_DEM'].'</td>
-                                         <td>
-                                            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><span class="badge badge-success">Voir</span></a>
-                                         </td>
-                                      </tr> 
-                         ';  } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <?php 
+                include 'etudiant_table_sio1.php';
+            ?>
         </div>
     </div>
 </div>

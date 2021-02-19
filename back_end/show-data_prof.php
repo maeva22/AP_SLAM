@@ -21,7 +21,7 @@ $stmt = $db->prepare(
             SALARIE.ID_ENTREPRISE=ENTREPRISE.ID_ENTREPRISE AND
            STAGE.ID_ETUDIANT=ETUDIANT.ID_ETUDIANT AND 
            ETUDIANT.ID_SPECIALITE=SPECIALITE.ID_SPECIALITE AND 
-           SPECIALITE.ID_PROF=:id    AND ETAT ='AT'
+           SPECIALITE.ID_PROF=:id    AND ETAT !='OK' 
            ORDER BY NOM_ETUDIANT DESC;"
 );
 $stmt->bindValue(':id', $id_courant, PDO::PARAM_INT);
@@ -30,12 +30,12 @@ $stageAttente = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countStageAttente = count($stageAttente);
 
 // Recherche des démarches effectuées par les étudiants de BTS SIO1  
-// pour le professeur de référence de la classe
+// pour le professeur de référence d'élève
 $stmt = $db->prepare(
-    "SELECT  NOM_ETUDIANT,PRENOM_ETUDIANT,COUNT(ID_DEMARCHE)  AS NB_DEM  
-        FROM etudiant LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
-            INNER JOIN classe ON ETUDIANT.ID_CLASSE=CLASSE.ID_CLASSE 
-        WHERE LIBELLE_CLASSE='SIO1' AND CLASSE.ID_PROF=:id_courant 
+    "SELECT   etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,COUNT(ID_DEMARCHE)  AS NB_DEM  
+        FROM etudiant 
+        LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
+        WHERE ETUDIANT.ID_PROF=:id_courant 
         GROUP BY ETUDIANT.ID_ETUDIANT   
         ORDER BY NOM_ETUDIANT;"
 );
@@ -44,16 +44,30 @@ $stmt->execute();
 $etudiantsProfRefDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countDemarcheProfref = count($etudiantsProfRefDemarche);
 
+
+$stmt = $db->prepare(
+    "SELECT   etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,COUNT(ID_DEMARCHE)  AS NB_DEM  
+        FROM etudiant 
+        LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
+        WHERE CLASSE.ID_PROF=:id_courant 
+        GROUP BY ETUDIANT.ID_ETUDIANT   
+        ORDER BY NOM_ETUDIANT;"
+);
+$stmt->bindValue(':id_courant', $id_courant, PDO::PARAM_INT);
+$stmt->execute(); 
+$classeProfRefDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
+$countDemarcheProfrefclasse = count($classeProfRefDemarche);
+
+
 // Recherche des démarches effectuées par les étudiants de BTS SIO1
 // décompte des démarches effectuées par chaque étudiant 
 // pour un professeur de spécialité
 $stmt = $db->prepare(
-    "SELECT  NOM_ETUDIANT,PRENOM_ETUDIANT,COUNT(ID_DEMARCHE)  AS NB_DEM  
+    "SELECT  etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,specialite.ID_SPECIALITE,COUNT(ID_DEMARCHE)  AS NB_DEM  
       FROM etudiant 
           LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
-          INNER JOIN classe ON ETUDIANT.ID_CLASSE=CLASSE.ID_CLASSE 
           INNER JOIN specialite ON SPECIALITE.ID_PROF=ETUDIANT.ID_SPECIALITE 
-     WHERE LIBELLE_CLASSE='SIO1' AND SPECIALITE.ID_PROF=:id_courant 
+     WHERE SPECIALITE.ID_PROF=:id_courant 
      GROUP BY ETUDIANT.ID_ETUDIANT  
       ORDER BY NOM_ETUDIANT;"
 );
