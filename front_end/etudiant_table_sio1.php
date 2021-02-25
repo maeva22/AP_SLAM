@@ -2,11 +2,13 @@
     <div class="card-body">
         <h5 class="card-title">Liste des étudiants de votre classe en BTS SIO 1</h5>
         <?php
+        //Entrée des résultats de toute les requêtes sql dans un tableau de tableaux afin de simplifier le code avec une foreach
         $request_table = array(
             $classeProfRefDemarche,
             $etudiantsProfRefDemarche,
             $etudiantsProfSpeDemarche
         );
+        //Choix titre permet d'afficher le bon titre pour chaque tableau
         $choix_titre = 0;
         foreach ($request_table as $table) {
             if (!empty($table)) { 
