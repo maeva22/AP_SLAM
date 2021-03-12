@@ -23,6 +23,7 @@ include '../back_end/show-data_etudiant.php';
                 <div class="row">
                     <div class="col-md-12">
                         <?php
+                        //Listage des étudiants de SIO1 (aps de SIO2 car ils ne sont pas encore à faire)
                         if($_GET['classe']=='SIO1'){
                         include 'etudiant_table_sio1.php';
                         }

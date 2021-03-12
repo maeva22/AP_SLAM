@@ -3,7 +3,7 @@
 
 <?php
 $title = "Liste des démarches de l'étudiant";
-// inclusion des fichiers hedaer, tt du type d'utilisateur
+// inclusion des fichiers header, tt du type d'utilisateur
 include '../includes/header.php';
 include '../middlewares/professeur.php';
 // inclusion des fichiers de traitements de données   
@@ -14,6 +14,7 @@ include '../back_end/show-data_etudiant.php';
 <body>
 
     <?php
+    //Inclusion de la barre de navigation
     include '../includes/barnav.php';
     ?>
 
