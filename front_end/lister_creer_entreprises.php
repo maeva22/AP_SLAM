@@ -58,6 +58,8 @@
                                                     <td>'. escape($row['NB_ET']) .'</td>
                                                     <td>
                                                         <a href="creer_demarche.php?id='.$row['ID_ENTREPRISE'].'" ><span class="badge badge-success">Démarcher</span></a>
+
+                                                        <a href="creer_contact.php?id='.$row['ID_ENTREPRISE'].'" ><span class="badge badge-info">Ajouter contact</span></a>
                                                     </td>
                                                 </tr> 
                                                 '; 
