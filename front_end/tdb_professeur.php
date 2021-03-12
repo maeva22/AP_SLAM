@@ -16,7 +16,7 @@ include '../back_end/liste_etudiant_profref.php'
     include '../includes/barnav.php';
     include 'tbd_gen.php';
     ?>
-    
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -41,44 +41,43 @@ include '../back_end/liste_etudiant_profref.php'
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                        foreach( $etudiants as $row ) { 
-                                            $verif_stage = 2;
-                                            foreach($etudiants2 as $row2){
-                                                if($row['ID_ETUDIANT']==$row2['ID_ETUDIANT']){
+                                    <?php
+                                    foreach ($etudiants as $row) {
+                                        $verif_stage = 2;
+                                        foreach ($etudiants2 as $row2) {
+                                            if ($row['ID_ETUDIANT'] == $row2['ID_ETUDIANT']) {
                                                 echo '
                                             
                                                 <tr>
-                                                    <td>'. $row2['ID_STAGE'] .'</td>    
-                                                    <td>'. $row['NOM_ETUDIANT'] .'</td>
-                                                    <td>'. $row['PRENOM_ETUDIANT'] .'</td>
-                                                    <td>'. $row2['NOM_ENTREPRISE'] .'</td>
-                                                    <td>'. $row2['VILLE_ENTREPRISE'] .'</td>
-                                                    <td>'. $row2['NOM_SALARIE'] .'</td>
-                                                    <td>'. $row2['TEL_SALARIE'] .'</td>
-                                                    <td>'. $row2['DATE_DEBUT'] .'</td>
-                                                    <td>'. $row2['DATE_FIN'] .'</td>
-                                                    <td>'. $row2['ETAT'] .'</td>
+                                                    <td>' . $row2['ID_STAGE'] . '</td>    
+                                                    <td>' . $row['NOM_ETUDIANT'] . '</td>
+                                                    <td>' . $row['PRENOM_ETUDIANT'] . '</td>
+                                                    <td>' . $row2['NOM_ENTREPRISE'] . '</td>
+                                                    <td>' . $row2['VILLE_ENTREPRISE'] . '</td>
+                                                    <td>' . $row2['NOM_SALARIE'] . '</td>
+                                                    <td>' . $row2['TEL_SALARIE'] . '</td>
+                                                    <td>' . $row2['DATE_DEBUT'] . '</td>
+                                                    <td>' . $row2['DATE_FIN'] . '</td>
+                                                    <td>' . $row2['ETAT'] . '</td>
                                                     <td>
                                                     <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
-                                                    <input type="radio" class="btn-check" name="btnradio'.$row['ID_STAGE'].'" id="btnradio1'.$row['ID_STAGE'].'" autocomplete="off" value="OK">
-                                                    <label class="btn btn-outline-success" for="btnradio1'.$row['ID_STAGE'].'" >Valider</label>
-                                                    <input type="radio" class="btn-check" name="btnradio'.$row['ID_STAGE'].'" id="btnradio2'.$row['ID_STAGE'].'" autocomplete="off" value="RE" >
-                                                    <label class="btn btn-outline-danger" for="btnradio2'.$row['ID_STAGE'].'"  >Refuser</label>
+                                                    <input type="radio" class="btn-check" name="btnradio' . $row['ID_STAGE'] . '" id="btnradio1' . $row['ID_STAGE'] . '" autocomplete="off" value="OK">
+                                                        <label class="btn btn-outline-success" for="btnradio1' . $row['ID_STAGE'] . '" >Valider</label>
+                                                        <input type="radio" class="btn-check" name="btnradio' . $row['ID_STAGE'] . '" id="btnradio2' . $row['ID_STAGE'] . '" autocomplete="off" value="RE" >
+                                                        <label class="btn btn-outline-danger" for="btnradio2' . $row['ID_STAGE'] . '"  >Refuser</label>
 
                                             
                                                     </div>
                                                 </td>
                                                         </tr> 
                                                         ';
-                                                        }
-                                                            else{
-                                                                $verif_stage--;
-                                                                if($verif_stage == 0)
-                                                            echo '<tr>
+                                            } else {
+                                                $verif_stage--;
+                                                if ($verif_stage == 0)
+                                                    echo '<tr>
                                                             <td></td>   
-                                                            <td>'. $row['NOM_ETUDIANT'] .'</td>
-                                                            <td>'. $row['PRENOM_ETUDIANT'] .'</td>
+                                                            <td>' . $row['NOM_ETUDIANT'] . '</td>
+                                                            <td>' . $row['PRENOM_ETUDIANT'] . '</td>
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
@@ -88,14 +87,13 @@ include '../back_end/liste_etudiant_profref.php'
                                                             <td>Pas de stage</td>
                                                             <td> </td>
                                                             </tr>';
-                                                            
-                                                            }
-                                                    }
-                                                    } ?>
+                                            }
+                                        }
+                                    } ?>
                                 </tbody>
                                 <?php
-                                        if($countStageAttente !=0){
-                                            echo'
+                                if ($countStageAttente != 0) {
+                                    echo '
                                         <tfoot>
                                             <tr>
                                                 <td>
@@ -103,7 +101,8 @@ include '../back_end/liste_etudiant_profref.php'
                                                 </td>
                                             </tr>
                                         </tfoot>
-                                      ';}  ?>
+                                      ';
+                                }  ?>
                             </form>
                         </table>
                     </div>
