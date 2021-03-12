@@ -61,10 +61,10 @@ include '../back_end/liste_etudiant_profref.php'
                                                     <td>' . $row2['ETAT'] . '</td>
                                                     <td>
                                                     <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
-                                                    <input type="radio" class="btn-check" name="btnradio' . $row['ID_STAGE'] . '" id="btnradio1' . $row['ID_STAGE'] . '" autocomplete="off" value="OK">
-                                                        <label class="btn btn-outline-success" for="btnradio1' . $row['ID_STAGE'] . '" >Valider</label>
-                                                        <input type="radio" class="btn-check" name="btnradio' . $row['ID_STAGE'] . '" id="btnradio2' . $row['ID_STAGE'] . '" autocomplete="off" value="RE" >
-                                                        <label class="btn btn-outline-danger" for="btnradio2' . $row['ID_STAGE'] . '"  >Refuser</label>
+                                                    <input type="radio" class="btn-check" name="btnradio' . $row2['ID_STAGE'] . '" id="btnradio1' . $row2['ID_STAGE'] . '" autocomplete="off" value="OK">
+                                                        <label class="btn btn-outline-success" for="btnradio1' . $row2['ID_STAGE'] . '" >Valider</label>
+                                                        <input type="radio" class="btn-check" name="btnradio' . $row2['ID_STAGE'] . '" id="btnradio2' . $row2['ID_STAGE'] . '" autocomplete="off" value="RE" >
+                                                        <label class="btn btn-outline-danger" for="btnradio2' . $row2['ID_STAGE'] . '"  >Refuser</label>
 
                                             
                                                     </div>
