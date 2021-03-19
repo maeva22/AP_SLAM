@@ -15,7 +15,7 @@ include '../back_end/liste_etudiant_profref.php'
     <?php
     include '../includes/barnav.php';
     include 'tbd_gen.php';
-    include 'stages_etudiants.php';
+    include 'stages_attentes_etudiants.php';
     ?>
 
     <div class="row">
