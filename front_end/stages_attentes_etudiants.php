@@ -22,27 +22,25 @@
                         </thead>
                         <tbody>
                         <?php 
-                        foreach( $stageAttente as $row ) { 
+                        foreach( $stageAttente as $row2 ) { 
                                 echo '
                             
                                 <tr>
-                                    <td>'. $row['ID_STAGE'] .'</td>    
-                                    <td>'. $row['NOM_ETUDIANT'] .'</td>
-                                    <td>'. $row['PRENOM_ETUDIANT'] .'</td>
-                                    <td>'. $row['NOM_ENTREPRISE'] .'</td>
-                                    <td>'. $row['VILLE_ENTREPRISE'] .'</td>
-                                    <td>'. $row['NOM_SALARIE'] .'</td>
-                                    <td>'. $row['TEL_SALARIE'] .'</td>
-                                    <td>'. $row['DATE_DEBUT'] .'</td>
-                                    <td>'. $row['DATE_FIN'] .'</td>
+                                    <td>'. $row2['ID_STAGE'] .'</td>    
+                                    <td>'. $row2['NOM_ETUDIANT'] .'</td>
+                                    <td>'. $row2['PRENOM_ETUDIANT'] .'</td>
+                                    <td>'. $row2['NOM_ENTREPRISE'] .'</td>
+                                    <td>'. $row2['VILLE_ENTREPRISE'] .'</td>
+                                    <td>'. $row2['NOM_SALARIE'] .'</td>
+                                    <td>'. $row2['TEL_SALARIE'] .'</td>
+                                    <td>'. $row2['DATE_DEBUT'] .'</td>
+                                    <td>'. $row2['DATE_FIN'] .'</td>
                                     <td>
                                         <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
-
-                                              <input type="radio" class="btn-check" name="btnradio'.$row['ID_STAGE'].'" id="btnradio1" autocomplete="off" value="OK" checked>
-                                              <label class="btn btn-outline-success" for="btnradio1" >Valider</label>
-
-                                              <input type="radio" class="btn-check" name="btnradio'.$row['ID_STAGE'].'" id="btnradio2" autocomplete="off" value="RE" >
-                                              <label class="btn btn-outline-danger" for="btnradio2"  >Refuser</label>
+                                            <input type="radio" class="btn-check" name="btnradio' . $row2['ID_STAGE'] . '" id="btnradio1' . $row2['ID_STAGE'] . '" autocomplete="off" value="OK">
+                                            <label class="btn btn-outline-success" for="btnradio1' . $row2['ID_STAGE'] . '" >Valider</label>
+                                            <input type="radio" class="btn-check" name="btnradio' . $row2['ID_STAGE'] . '" id="btnradio2' . $row2['ID_STAGE'] . '" autocomplete="off" value="RE" >
+                                            <label class="btn btn-outline-danger" for="btnradio2' . $row2['ID_STAGE'] . '"  >Refuser</label>
                                         </div>
                                     </td>
                                 </tr> 
