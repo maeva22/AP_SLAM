@@ -26,33 +26,6 @@
                                     foreach ($etudiants as $row) {
                                         $verif_stage = 2;
                                         foreach ($etudiants2 as $row2) {
-                                            if ($row['ID_ETUDIANT'] == $row2['ID_ETUDIANT']) {
-                                                echo '
-                                            
-                                                <tr>
-                                                    <td>' . $row2['ID_STAGE'] . '</td>    
-                                                    <td>' . $row['NOM_ETUDIANT'] . '</td>
-                                                    <td>' . $row['PRENOM_ETUDIANT'] . '</td>
-                                                    <td>' . $row2['NOM_ENTREPRISE'] . '</td>
-                                                    <td>' . $row2['VILLE_ENTREPRISE'] . '</td>
-                                                    <td>' . $row2['NOM_SALARIE'] . '</td>
-                                                    <td>' . $row2['TEL_SALARIE'] . '</td>
-                                                    <td>' . $row2['DATE_DEBUT'] . '</td>
-                                                    <td>' . $row2['DATE_FIN'] . '</td>
-                                                    <td>' . $row2['ETAT'] . '</td>
-                                                    <td>
-                                                    <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
-                                                    <input type="radio" class="btn-check" name="btnradio' . $row2['ID_STAGE'] . '" id="btnradio1' . $row2['ID_STAGE'] . '" autocomplete="off" value="OK">
-                                                        <label class="btn btn-outline-success" for="btnradio1' . $row2['ID_STAGE'] . '" >Valider</label>
-                                                        <input type="radio" class="btn-check" name="btnradio' . $row2['ID_STAGE'] . '" id="btnradio2' . $row2['ID_STAGE'] . '" autocomplete="off" value="RE" >
-                                                        <label class="btn btn-outline-danger" for="btnradio2' . $row2['ID_STAGE'] . '"  >Refuser</label>
-
-                                            
-                                                    </div>
-                                                </td>
-                                                        </tr> 
-                                                        ';
-                                            } else {
                                                 $verif_stage--;
                                                 if ($verif_stage == 0)
                                                     echo '<tr>
@@ -68,7 +41,7 @@
                                                             <td>Pas de stage</td>
                                                             <td> </td>
                                                             </tr>';
-                                            }
+                                            
                                         }
                                     } ?>
                                 </tbody>
