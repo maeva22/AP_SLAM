@@ -30,7 +30,7 @@ $etudiants2 = $stmt->fetchAll(PDO::FETCH_BOTH);
 // Recherche des stages non validés dans la même spécialité  
 // que celle du professeur connecté s'il est professeur de spécialité
 $stmt = $db->prepare(
-    "SELECT etudiant.ID_ETUDIANT,DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
+    "SELECT DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
             PRENOM_ETUDIANT,NOM_ENTREPRISE,
             VILLE_ENTREPRISE,NOM_SALARIE,TEL_SALARIE,ETAT
       FROM stage,entreprise,etudiant,salarie,specialite 
@@ -49,7 +49,7 @@ $countStageRefuse = count($stageRefuse);
 // Recherche des stages non validés dans la même spécialité  
 // que celle du professeur connecté s'il est professeur de spécialité
 $stmt = $db->prepare(
-    "SELECT etudiant.ID_ETUDIANT,DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
+    "SELECT DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
             PRENOM_ETUDIANT,NOM_ENTREPRISE,
             VILLE_ENTREPRISE,NOM_SALARIE,TEL_SALARIE,ETAT
       FROM stage,entreprise,etudiant,salarie,specialite 

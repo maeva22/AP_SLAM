@@ -8,7 +8,6 @@
                             <form action="../back_end/liste_etudiant_profref.php" method="POST">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Nom Stagiaire</th>
                                         <th scope="col">Prénom Stagiaire</th>
                                         <th scope="col">Etat</th>
@@ -21,8 +20,7 @@
                                         foreach ($etudiants2 as $row2) {
                                                 $verif_stage--;
                                                 if ($verif_stage == 0)
-                                                    echo '<tr>
-                                                            <td></td>   
+                                                    echo '<tr>  
                                                             <td>' . $row['NOM_ETUDIANT'] . '</td>
                                                             <td>' . $row['PRENOM_ETUDIANT'] . '</td>
                                                             <td>Pas de stage</td>
@@ -41,7 +39,6 @@
                             <form  action="../back_end/liste_etudiant_profref.php" method="POST">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Nom Stagiaire</th>
                                         <th scope="col">Prénom Stagiaire</th>
                                         <th scope="col">Nom entreprise</th>
@@ -59,7 +56,6 @@
                                 echo '
                             
                                 <tr>
-                                    <td>'. $row2['ID_ETUDIANT'] .'</td>    
                                     <td>'. $row2['NOM_ETUDIANT'] .'</td>
                                     <td>'. $row2['PRENOM_ETUDIANT'] .'</td>
                                     <td>'. $row2['NOM_ENTREPRISE'] .'</td>
@@ -85,7 +81,6 @@
                             <form  action="../back_end/liste_etudiant_profref.php" method="POST">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Nom Stagiaire</th>
                                         <th scope="col">Prénom Stagiaire</th>
                                         <th scope="col">Nom entreprise</th>
@@ -102,8 +97,7 @@
                                     foreach( $StageAccepter as $row2 ) { 
                                 echo '
                             
-                                <tr>
-                                    <td>'. $row2['ID_ETUDIANT'] .'</td>    
+                                <tr>   
                                     <td>'. $row2['NOM_ETUDIANT'] .'</td>
                                     <td>'. $row2['PRENOM_ETUDIANT'] .'</td>
                                     <td>'. $row2['NOM_ENTREPRISE'] .'</td>
