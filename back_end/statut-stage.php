@@ -1,5 +1,7 @@
-
 <?php
+/** 
+	pour changer l'etat du stage en attente (AT) en stage valider (OK) ou en stage refuser (RE)
+ **/ 
 require 'db.php';
 foreach ($_POST as $key => $valeur) {
     $idstage = str_replace("btnradio","", $key);
