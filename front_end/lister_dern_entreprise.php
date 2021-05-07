@@ -37,8 +37,8 @@
                                             <a href="creer_demarche.php?id='.$row['ID_ENTREPRISE'].'" ><span class="badge badge-success">Démarcher</span></a>
                                          </td>
                                       </tr> 
-                         '; 
-                          } ?>
+                         ';  
+                          ?>
                         </tbody>
                     </table>
                 </div>
