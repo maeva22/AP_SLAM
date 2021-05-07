@@ -39,6 +39,7 @@ session_start();
     <!-- Theme Styles -->
     <link href="../assets/css/custom.css" rel="stylesheet">
     <link href="../assets/css/lime.min.css" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script><!--Script javascript mis dans le header car il est obligé d'être chargé avant le script -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><!--Script déplacé car ne chargeait pas s'il était en footer pour les graphs -->
 
 </head>

@@ -6,7 +6,7 @@
  **/ 
 $id= $_GET['id'];
 
-$stmt = $db->prepare(
+$stmt = $db_etudiant->prepare(
     "SELECT  NOM_ENTREPRISE,ADRESSE_ENTREPRISE, CP_ENTREPRISE,
        VILLE_ENTREPRISE,TEL_ENTREPRISE,EMAIL_ENTREPRISE,REFUS_ANNEESIO1  
        FROM entreprise  
@@ -18,7 +18,7 @@ $entreprise = $stmt->fetch(PDO::FETCH_BOTH);
 
 // recherche des  salariés contact pour cette entreprise
 // à présenter dans un menu déroulant
-$stmt = $db->prepare(
+$stmt = $db_etudiant->prepare(
     "SELECT  ID_SALARIE,NOM_SALARIE,PRENOM_SALARIE,TEL_SALARIE,EMAIL_SALARIE  
       FROM salarie INNER JOIN entreprise 
           ON SALARIE.ID_ENTREPRISE=ENTREPRISE.ID_ENTREPRISE 
@@ -30,7 +30,7 @@ $contacts = $stmt->fetchAll(PDO::FETCH_BOTH);
 
 // recherche des  moyens de communication
 // à présenter dans un menu déroulant
-$stmt = $db->prepare("SELECT  ID_MOYEN,LIBELLE_MOYEN  FROM moyencom;");
+$stmt = $db_etudiant->prepare("SELECT  ID_MOYEN,LIBELLE_MOYEN  FROM moyencom;");
 $stmt->execute(); 
 $moyens = $stmt->fetchAll(PDO::FETCH_BOTH);
 ?>

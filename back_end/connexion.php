@@ -22,9 +22,9 @@ if (isset($_POST['connexion'])) {
     $rank = $_GET['type'];
     // vérification dans la base selon le type d'utilisateur
     if ($type == "professeur") { 
-        $stmt = $db->prepare("SELECT * FROM professeur WHERE EMAIL=:email");
+        $stmt = $db_accueil->prepare("SELECT * FROM professeur WHERE EMAIL=:email");
     } else {
-        $stmt = $db->prepare("SELECT * FROM etudiant WHERE EMAIL=:email");
+        $stmt = $db_accueil->prepare("SELECT * FROM etudiant WHERE EMAIL=:email");
     }
     
     // Lier les paramètres à la requête avec vérification du type

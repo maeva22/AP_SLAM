@@ -6,7 +6,7 @@ require 'db.php';
 foreach ($_POST as $key => $valeur) {
     $idstage = str_replace("btnradio","", $key);
     $radio = $valeur;
-    $req = $db->prepare('UPDATE stage SET ETAT =:etatstage WHERE ID_STAGE=:id_stage ');
+    $req = $db_professeur->prepare('UPDATE stage SET ETAT =:etatstage WHERE ID_STAGE=:id_stage ');
     $req->bindParam(":id_stage", $idstage);
     $req->bindParam(":etatstage",$radio);
     $req->execute();

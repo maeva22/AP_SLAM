@@ -29,15 +29,17 @@ if (isset($_POST['modifier-profil'])) {
                        SET NOM_ETUDIANT=:nom, prenom_ETUDIANT=:prenom, 
                             email=:email,tel_ETUDIANT=:telephone 
                        WHERE id_ETUDIANT=:id;";
+                $connexion = $db_etudiant;
             } else {
                 $req="UPDATE professeur 
                         SET NOM_PROF=:nom, prenom_PROF=:prenom, 
                              email=:email, tel_PROF=:telephone 
                         WHERE id_PROF=:id;";
+                $connexion = $db_professeur;
             }
             
-            try {
-                $stmt = $db->prepare($req);
+            try {       
+                $stmt = $connexion->prepare($req);
                 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                 $stmt->bindValue(':nom', $nom, PDO::PARAM_STR);
                 $stmt->bindValue(':prenom', $prenom, PDO::PARAM_STR);
@@ -81,15 +83,17 @@ if (isset($_POST['modifier-mdp'])) {
                     $reqmdp="UPDATE etudiant 
                               SET MDP_ETUDIANT=:motdepasse 
                               WHERE id_ETUDIANT=:id;";
+                    $connexion = $db_etudiant;
                 } else {
                     $reqmdp="UPDATE etudiant 
                               SET MDP_ETUDIANT=:motdepasse
                               WHERE id_ETUDIANT=:id;";
+                    $connexion = $db_professeur;
                 }
                  
                 // Insertion des données en base
                 try {
-                    $stmt = $db->prepare($reqmdp);
+                    $stmt = $connexion->prepare($reqmdp);
                     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                     $stmt->bindValue(':motdepasse', $hashed, PDO::PARAM_STR);
                     $stmt->execute();

@@ -12,7 +12,7 @@ $id_courant=$_SESSION['id'];
 
 // Recherche des stages non validés dans la même spécialité  
 // que celle du professeur connecté s'il est professeur de spécialité
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT ID_STAGE,DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
             PRENOM_ETUDIANT,NOM_ENTREPRISE,
             VILLE_ENTREPRISE,NOM_SALARIE,TEL_SALARIE 
@@ -31,7 +31,7 @@ $countStageAttente = count($stageAttente);
 
 // Recherche des démarches effectuées par les étudiants de BTS  
 // pour le professeur de référence d'élève
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT   etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,COUNT(ID_DEMARCHE)  AS NB_DEM  
         FROM etudiant 
         LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
@@ -47,7 +47,7 @@ $countDemarcheProfref = count($etudiantsProfRefDemarche);
 // Recherche des démarches effectuées par les étudiants de BTS
 // décompte des démarches effectuées par chaque étudiant 
 // pour un professeur référent de classe
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT   etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,COUNT(ID_DEMARCHE)  AS NB_DEM  
         FROM etudiant 
         LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
@@ -64,7 +64,7 @@ $countDemarcheProfrefclasse = count($classeProfRefDemarche);
 // Recherche des démarches effectuées par les étudiants de BTS
 // décompte des démarches effectuées par chaque étudiant 
 // pour un professeur de spécialité
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT  etudiant.ID_ETUDIANT,NOM_ETUDIANT,PRENOM_ETUDIANT,ID_CLASSE,etudiant.EMAIL,specialite.ID_SPECIALITE,COUNT(ID_DEMARCHE)  AS NB_DEM  
       FROM etudiant 
           LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
@@ -80,7 +80,7 @@ $countDemarcheProfspe = count($etudiantsProfSpeDemarche);
 
 // Recherche des démarches effectuées par les étudiants de BTS
 // décompte des démarches effectuées par chaque étudiant associé à un simple professeur
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT  NOM_ETUDIANT,PRENOM_ETUDIANT,COUNT(ID_DEMARCHE)  AS NB_DEM  
         FROM etudiant 
          LEFT JOIN demarche ON ETUDIANT.ID_ETUDIANT=DEMARCHE.ID_ETUDIANT 
@@ -95,7 +95,7 @@ $etudiantsProfSimpleDemarche = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countDemarcheProfsimple = count($etudiantsProfSimpleDemarche);
 
 //Requête permettant d'afficher les démarches d'un étudiant choisi
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT ID_ETUDIANT,ID_DEMARCHE, NOM_ENTREPRISE,VILLE_ENTREPRISE, ADRESSE_ENTREPRISE,CP_ENTREPRISE,TEL_ENTREPRISE,EMAIL_ENTREPRISE,NOM_SALARIE,PRENOM_SALARIE,TEL_SALARIE,EMAIL_SALARIE,DATE_DEMARCHE,COMMENTAIRE,LIBELLE_MOYEN 
         FROM demarche
         INNER JOIN salarie ON demarche.ID_SALARIE =  salarie.ID_SALARIE

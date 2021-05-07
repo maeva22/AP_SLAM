@@ -21,7 +21,7 @@
                             <div class="card text-center">
                                 <div class="card-body">
                                     <h5 class="card-title">Accès Professeur</h5>
-                                    <img src="../assets/images/teacher.png" alt="">
+                                    <img src="../assets/images/teacher.png" class="img-fluid" alt="">
                                 </div>
                                 <a href="connexion.php?type=professeur">
                                     <button class="btn btn-block btn-lg btn-primary" id="lobby-card-pres">Connexion Professeur</button>
@@ -31,7 +31,7 @@
                             <div class="card text-center">
                                 <div class="card-body">
                                     <h5 class="card-title">Accès Etudiant</h5>
-                                    <img src="../assets/images/student.png" alt="">
+                                    <img src="../assets/images/student.png" class="img-fluid" alt="">
                                 </div>
                                 <a href="connexion.php?type=etudiant">
                                     <button class="btn btn-block btn-lg btn-primary" id="lobby-card-pres">Connexion Etudiant</button>

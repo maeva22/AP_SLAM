@@ -6,7 +6,7 @@ if (isset($_POST['creer_demarche'])) {
         
         $query = "INSERT INTO DEMARCHE (ID_SALARIE, ID_ETUDIANT,ID_MOYEN,DATE_DEMARCHE,COMMENTAIRE) VALUES (:id_contact,:id_etudiant,:id_moyen,:date_dem,:comment);";
     
-            $stmt = $db->prepare($query);
+            $stmt = $db_etudiant->prepare($query);
             $stmt->bindValue(':id_contact', $_POST['id_contact'], PDO::PARAM_INT);
             $stmt->bindValue(':id_etudiant', $_SESSION['id'], PDO::PARAM_INT);
             $stmt->bindValue(':id_moyen', $_POST['id_moyen'], PDO::PARAM_INT);

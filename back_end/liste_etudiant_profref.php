@@ -9,7 +9,7 @@ $req1="SELECT NOM_ETUDIANT,PRENOM_ETUDIANT,ID_ETUDIANT
 FROM ETUDIANT, PROFESSEUR
 WHERE ETUDIANT.ID_PROF=PROFESSEUR.ID_PROF 
 AND PROFESSEUR.ID_PROF = :id";
-$stmt = $db->prepare($req1);
+$stmt = $db_professeur->prepare($req1);
 $stmt -> bindValue(":id",$id);
 $stmt->execute(); 
 $etudiants = $stmt->fetchAll(PDO::FETCH_BOTH);
@@ -22,14 +22,14 @@ FROM STAGE,ENTREPRISE,SALARIE
 WHERE STAGE.ID_SALARIE=SALARIE.ID_SALARIE
 AND ENTREPRISE.ID_ENTREPRISE=SALARIE.ID_ENTREPRISE"
 ;
-$stmt = $db->prepare($req1);
+$stmt = $db_professeur->prepare($req1);
 $stmt -> bindValue(":id",$id);
 $stmt->execute(); 
 $etudiants2 = $stmt->fetchAll(PDO::FETCH_BOTH);
 
 // Recherche des stages non validés dans la même spécialité  
 // que celle du professeur connecté s'il est professeur de spécialité
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
             PRENOM_ETUDIANT,NOM_ENTREPRISE,
             VILLE_ENTREPRISE,NOM_SALARIE,TEL_SALARIE,ETAT
@@ -48,7 +48,7 @@ $countStageRefuse = count($stageRefuse);
 
 // Recherche des stages non validés dans la même spécialité  
 // que celle du professeur connecté s'il est professeur de spécialité
-$stmt = $db->prepare(
+$stmt = $db_professeur->prepare(
     "SELECT DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
             PRENOM_ETUDIANT,NOM_ENTREPRISE,
             VILLE_ENTREPRISE,NOM_SALARIE,TEL_SALARIE,ETAT

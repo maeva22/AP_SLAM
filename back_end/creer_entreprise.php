@@ -11,7 +11,7 @@ if (isset($_POST['creer_entreprise'])) {
     ) {
         // préparation de l'enregistrement de l'entreprise avec les valeurs saisies 
         $query = "INSERT INTO entreprise (NOM_ENTREPRISE,ADRESSE_ENTREPRISE, VILLE_ENTREPRISE, CP_ENTREPRISE,EMAIL_ENTREPRISE,TEL_ENTREPRISE) VALUES (:nom,:adresse,:ville,:cp,:email,:tel);";
-        $stmt = $db->prepare($query);
+        $stmt = $db_etudiant->prepare($query);
         $stmt->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
         $stmt->bindValue(':adresse', $_POST['adresse'], PDO::PARAM_STR);
         $stmt->bindValue(':ville', $_POST['ville'], PDO::PARAM_STR);

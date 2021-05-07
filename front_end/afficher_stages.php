@@ -16,7 +16,15 @@
     include '../includes/barnav.php';  
     include 'stages_etudiants.php';
     ?>     
-
+    <div class="lime-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="footer-text">2020 © iStage</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include '../includes/footer.php' ?>
 
 </body>

@@ -8,7 +8,7 @@
  **/ 
 $id_et=$_SESSION['id'];
 
-$stmt = $db->prepare("SELECT * FROM stage WHERE ID_ETUDIANT=:id;");
+$stmt = $db_etudiant->prepare("SELECT * FROM stage WHERE ID_ETUDIANT=:id;");
 $id_et=$_SESSION['id'];
 $stmt->bindValue(':id', $id_et, PDO::PARAM_INT);
 $stmt->execute(); 
@@ -18,7 +18,7 @@ $countStage = count($stage);
 // connaitre une démarche nécessite  non seulement de connaitre ces caractéristiques
 // mais aussi les caractéristiques de l'entreprise et les moyens de comm utilsés
 // et le salarié contacté au sein de l'entreprise
-$stmt = $db->prepare(
+$stmt = $db_etudiant->prepare(
     "SELECT ENTREPRISE.ID_ENTREPRISE, NOM_ENTREPRISE,VILLE_ENTREPRISE, NOM_SALARIE, 
            TEL_SALARIE,DATE_DEMARCHE,COMMENTAIRE,LIBELLE_MOYEN 
         FROM salarie,demarche,entreprise,moyencom 

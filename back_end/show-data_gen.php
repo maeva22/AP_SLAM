@@ -8,7 +8,7 @@
  **/ 
 // recherche des étudiants  ceux de SIO1
 // ainsi que le nombre d'étudiants
-$stmt = $db->prepare("SELECT * FROM etudiant ORDER BY nom_etudiant ASC");
+$stmt = $db_etudiant->prepare("SELECT * FROM etudiant ORDER BY nom_etudiant ASC");
 $stmt->execute(); 
 $etudiants = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countEtudiants = count($etudiants);
@@ -29,20 +29,20 @@ $req="
           LEFT JOIN demarche ON SALARIE.ID_SALARIE=DEMARCHE.ID_SALARIE 
     GROUP BY ENTREPRISE.ID_ENTREPRISE;";
 
-$stmt = $db->prepare($req);
+$stmt = $db_etudiant->prepare($req);
 $stmt->execute(); 
 $entreprisesAvecNbDem = $stmt->fetchAll(PDO::FETCH_BOTH);
 
 // recherche et comptage des entreprises 
 //       qui acceptent encore de répondre à des stages
-$stmt = $db->prepare("SELECT * FROM entreprise WHERE REFUS_ANNEESIO1=0 ");
+$stmt = $db_etudiant->prepare("SELECT * FROM entreprise WHERE REFUS_ANNEESIO1=0 ");
 $stmt->execute(); 
 $entreprises = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countEntreprises = count($entreprises);
 
 // recherche et comptage des entreprises 
 //       qui réfusent de répondre à des stages
-$stmt = $db->prepare("SELECT * FROM entreprise WHERE REFUS_ANNEESIO1=1 ");
+$stmt = $db_etudiant->prepare("SELECT * FROM entreprise WHERE REFUS_ANNEESIO1=1 ");
 $stmt->execute(); 
 $entrepriseRefus = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countEntreprisesRefus = count($entrepriseRefus);
@@ -53,7 +53,7 @@ $countEntrepriseTotal = sql_fetch_column("SELECT COUNT(*) FROM entreprise");
 
 // recherche et comptage des stages obtenus par les stagiaires
 //       qui réfusent de répondre à des stages
-$stmt = $db->prepare("SELECT * FROM stage WHERE ETAT='OK';");
+$stmt = $db_etudiant->prepare("SELECT * FROM stage WHERE ETAT='OK';");
 $stmt->execute();
 $etudiantStage = $stmt->fetchAll(PDO::FETCH_BOTH);
 $countEtudiantStage = count($etudiantStage);

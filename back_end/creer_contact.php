@@ -11,7 +11,7 @@ if (isset($_POST['creer_contact'])) {
 // préparation de l'enregistrement du contact avec les valeurs saisies 
         $query = "INSERT INTO SALARIE (ID_ENTREPRISE,NOM_SALARIE,PRENOM_SALARIE,
         TEL_SALARIE,EMAIL_SALARIE) VALUES (:id,:nom,:prenom,:tel,:email);";
-        $stmt = $db->prepare($query);
+        $stmt = $db_etudiant->prepare($query);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
         $stmt->bindValue(':prenom', $_POST['prenom'], PDO::PARAM_STR);
