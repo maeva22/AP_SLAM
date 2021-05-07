@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -5,7 +6,7 @@
                 <h5 class="card-title">Stages en attente</h5>
                 <div class="table-responsive">
                     <table class="table">
-                        <form action="../back_end/statut-stage.php" method="POST">
+                        <form action="../back_end/etat_stage.php" method="POST">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>

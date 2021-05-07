@@ -90,6 +90,7 @@
                                         <th scope="col">Date début</th>
                                         <th scope="col">Date fin</th>
                                         <th scope="col">Etat</th>
+                                        <th scope="col">Statut de la convention</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -107,6 +108,7 @@
                                     <td>'. $row2['DATE_DEBUT'] .'</td>
                                     <td>'. $row2['DATE_FIN'] .'</td>
                                     <td>'. $row2['ETAT'] .'</td>
+                                    <td>'. $row2['STATUT_CONVENTION'].'</td>
 
                                 </tr> 
                                 '; } ?>

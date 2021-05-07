@@ -15,7 +15,9 @@ CREATE TABLE IF NOT EXISTS MOYENCOM
    ID_MOYEN SMALLINT AUTO_INCREMENT ,
    LIBELLE_MOYEN CHAR(32) NOT NULL  
    , PRIMARY KEY (ID_MOYEN) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+ 
 
 
 
@@ -28,7 +30,8 @@ CREATE TABLE IF NOT EXISTS SPECIALITE
    ID_PROF SMALLINT NOT NULL  ,
    LIBELLE_SPECIALITE CHAR(4) NOT NULL  
    , PRIMARY KEY (ID_SPECIALITE) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 
 # -----------------------------------------------------------------------------
@@ -50,7 +53,8 @@ CREATE TABLE IF NOT EXISTS ETUDIANT
    TEL_ETUDIANT CHAR(10) NOT NULL ,
    MDP VARCHAR(100) NOT NULL
    , PRIMARY KEY (ID_ETUDIANT) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
  
 
 # -----------------------------------------------------------------------------
@@ -64,9 +68,12 @@ CREATE TABLE IF NOT EXISTS STAGE
    ID_SALARIE SMALLINT NOT NULL  ,
    DATE_FIN DATE NOT NULL  ,
    DATE_DEBUT DATE NOT NULL  ,
-   ETAT CHAR(2) NOT NULL  
+   ETAT CHAR(2) NOT NULL  ,
+   STATUT_CONVENTION CHAR(10) NOT NULL b;
    , PRIMARY KEY (ID_STAGE) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
 
 
 # -----------------------------------------------------------------------------
@@ -82,7 +89,8 @@ CREATE TABLE IF NOT EXISTS PROFESSEUR
    TEL_PROF CHAR(10) NOT NULL  ,
    MDP VARCHAR(100) NOT NULL
    , PRIMARY KEY (ID_PROF) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 
 # -----------------------------------------------------------------------------
@@ -98,7 +106,9 @@ CREATE TABLE IF NOT EXISTS DEMARCHE
    DATE_DEMARCHE DATETIME NOT NULL  ,
    COMMENTAIRE CHAR(255) NOT NULL  
    , PRIMARY KEY (ID_DEMARCHE) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
 
 
 # -----------------------------------------------------------------------------
@@ -117,8 +127,8 @@ CREATE TABLE IF NOT EXISTS ENTREPRISE
    REFUS_ANNEESIO1 BOOLEAN NOT NULL DEFAULT FALSE ,
    REFUS_ANNEE_SIO2 BOOLEAN NOT NULL DEFAULT FALSE
    , PRIMARY KEY (ID_ENTREPRISE) 
- ) ;
-
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 # -----------------------------------------------------------------------------
 #      * TABLE : SALARIE
@@ -133,7 +143,8 @@ CREATE TABLE IF NOT EXISTS SALARIE
    TEL_SALARIE CHAR(10) NOT NULL  ,
    EMAIL_SALARIE CHAR(32) NOT NULL  
    , PRIMARY KEY (ID_SALARIE) 
- ) ;
+ ) 
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 # -----------------------------------------------------------------------------
 #      * TABLE : CLASSE
@@ -145,7 +156,8 @@ CREATE TABLE IF NOT EXISTS CLASSE
    ID_PROF SMALLINT NOT NULL  ,
    LIBELLE_CLASSE CHAR(4) NOT NULL  
    , PRIMARY KEY (ID_CLASSE) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 
 # -----------------------------------------------------------------------------
@@ -157,8 +169,9 @@ CREATE TABLE IF NOT EXISTS ETRE_CONTACTER
    ID_DEMARCHE SMALLINT NOT NULL  ,
    ID_SALARIE SMALLINT NOT NULL  
    , PRIMARY KEY (ID_DEMARCHE,ID_SALARIE) 
- ) ;
- 
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
 
 # -----------------------------------------------------------------------------
 #      * TABLE : ENSEIGNER
@@ -171,7 +184,9 @@ CREATE TABLE IF NOT EXISTS ENSEIGNER
    MATIERE VARCHAR(10) NOT NULL,
    NB_HEURES   SMALLINT NOT NULL
    , PRIMARY KEY (ID_CLASSE,ID_PROF) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
  
 
 # -----------------------------------------------------------------------------
@@ -186,7 +201,8 @@ CREATE TABLE IF NOT EXISTS VISITER
    COMMENTAIRES VARCHAR(50),
    HEURE_PREVUE TIME NOT NULL 
    , PRIMARY KEY (ID_PROF,ID_STAGE) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
  
 
 # -----------------------------------------------------------------------------
@@ -199,7 +215,9 @@ CREATE TABLE IF NOT EXISTS SOUHAITER
    ID_STAGE SMALLINT NOT NULL  ,
    PRIORITE SMALLINT NOT NULL  
    , PRIMARY KEY (ID_PROF,ID_STAGE) 
- ) ;
+ )
+ ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
 # -----------------------------------------------------------------------------
 #       CREATION DES REFERENCES DE TABLE
 # -----------------------------------------------------------------------------
