@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-sm-12"> 
 
-            <button type="button" name="creer_entreprise" >
+            <button type="button" name="creer_entreprise" class="btn" >
             <a href="creer_entreprise.php" class="btn btn-block btn-primary btn-lg">Pour créer une démarche avec une entreprise qui n'est pas dans la liste, il faut d'abord créer l'entreprise.</a>
             </button>
           </div>
