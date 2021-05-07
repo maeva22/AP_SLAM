@@ -36,8 +36,9 @@ if (isset($_POST['connexion'])) {
 
     if (!empty($email) && !empty($motdepasse)) {
         if ($stmt->rowCount() > 0) {    
+            print (hash('sha256',$motdepasse)." ".$row['MDP']. " ".hash('sha256','76EpKq-5seu6b3hQ') );
             // Vérification que les mots de passe et mail soiennt identiques       
-            if (strtoUPPER($email) == $row["EMAIL"] && $motdepasse== $row["MDP"]) {
+            if (strtoUPPER($email) == $row["EMAIL"] &&hash('sha256',$motdepasse)== $row["MDP"]) {
                 // ????? dès que les mots de passes sécurisés. 
                 //?????password_verify($motdepasse, $row["motdepasse"]))
                 $show = true;
