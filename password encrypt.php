@@ -16,8 +16,8 @@
     $stmt->execute(); 
     $mdp_eleve = $stmt ->fetchAll(PDO::FETCH_BOTH);
     foreach($mdp_eleve as $mdp){
+        $req4 = "UPDATE etudiant SET MDP ='".hash('sha256',$mdp['MDP']). "' WHERE EMAIL='".$mdp['EMAIL']."'";
         print($req4."; ");
-        $req4 = "UPDATE etudiant SET MDP =".hash('sha256',$mdp['MDP']). "WHERE EMAIL=".$mdp['EMAIL'];
         $stmt = $db_etudiant->prepare($req4);
         $stmt->execute(); 
     }
