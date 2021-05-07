@@ -1,20 +1,20 @@
 <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Liste des élèves n'ayant pas de stage </h5>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <form action="../back_end/liste_etudiant_profref.php" method="POST">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nom Stagiaire</th>
-                                        <th scope="col">Prénom Stagiaire</th>
-                                        <th scope="col">Etat</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Liste des élèves n'ayant pas de stage </h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <form action="../back_end/liste_etudiant_profref.php" method="POST">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nom Stagiaire</th>
+                                    <th scope="col">Prénom Stagiaire</th>
+                                    <th scope="col">Etat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     foreach ($etudiants as $row) {
                                         $verif_stage = 2;
                                         foreach ($etudiants2 as $row2) {
@@ -27,31 +27,31 @@
                                                             </tr>';
                                         }
                                     } ?>
-                                </tbody>
-                            </form>
-                        </table>
-                    </div>
+                            </tbody>
+                        </form>
+                    </table>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Liste des élèves avec un stage refusé </h5>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <form  action="../back_end/liste_etudiant_profref.php" method="POST">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nom Stagiaire</th>
-                                        <th scope="col">Prénom Stagiaire</th>
-                                        <th scope="col">Nom entreprise</th>
-                                        <th scope="col">Ville entreprise</th>
-                                        <th scope="col">Nom contact</th>
-                                        <th scope="col">Tel contact</th>
-                                        <th scope="col">Date début</th>
-                                        <th scope="col">Date fin</th>
-                                        <th scope="col">Etat</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Liste des élèves avec un stage refusé </h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <form action="../back_end/liste_etudiant_profref.php" method="POST">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nom Stagiaire</th>
+                                    <th scope="col">Prénom Stagiaire</th>
+                                    <th scope="col">Nom entreprise</th>
+                                    <th scope="col">Ville entreprise</th>
+                                    <th scope="col">Nom contact</th>
+                                    <th scope="col">Tel contact</th>
+                                    <th scope="col">Date début</th>
+                                    <th scope="col">Date fin</th>
+                                    <th scope="col">Etat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     foreach( $stageRefuse as $row2 ) { 
                                 echo '
                             
@@ -69,32 +69,33 @@
                                 </tr> 
                                 '; } ?>
 
-                                </tbody>
-                            </form>
-                        </table>
-                    </div>
+                            </tbody>
+                        </form>
+                    </table>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Liste des élèves avec un stage  </h5>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <form  action="../back_end/liste_etudiant_profref.php" method="POST">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Nom Stagiaire</th>
-                                        <th scope="col">Prénom Stagiaire</th>
-                                        <th scope="col">Nom entreprise</th>
-                                        <th scope="col">Ville entreprise</th>
-                                        <th scope="col">Nom contact</th>
-                                        <th scope="col">Tel contact</th>
-                                        <th scope="col">Date début</th>
-                                        <th scope="col">Date fin</th>
-                                        <th scope="col">Etat</th>
-                                        <th scope="col">Statut de la convention</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Liste des élèves avec un stage </h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <form action="../back_end/liste_etudiant_profref.php" method="POST">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nom Stagiaire</th>
+                                    <th scope="col">Prénom Stagiaire</th>
+                                    <th scope="col">Nom entreprise</th>
+                                    <th scope="col">Ville entreprise</th>
+                                    <th scope="col">Nom contact</th>
+                                    <th scope="col">Tel contact</th>
+                                    <th scope="col">Date début</th>
+                                    <th scope="col">Date fin</th>
+                                    <th scope="col">Etat</th>
+                                    <th scope="col">Statut de la convention</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     foreach( $StageAccepter as $row2 ) { 
                                 echo '
                             
@@ -109,15 +110,39 @@
                                     <td>'. $row2['DATE_FIN'] .'</td>
                                     <td>'. $row2['ETAT'] .'</td>
                                     <td>'. $row2['STATUT_CONVENTION'].'</td>
+                                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#supprimer_stage">Supprimer</button>
+                                    </td>
 
                                 </tr> 
                                 '; } ?>
 
-                                </tbody>
-                            </form>
-                        </table>
+                            </tbody>
+                        </form>
+                    </table>
+                    <div class="modal fade" id="supprimer_stage" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form>
+                                <div class="modal-body">
+                                    <h5 class="card-title">Voulez-vous vraiment refusé le stage ? </h5><br />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" value="supprimer_stage.php"class="btn btn-primary">Refuser</button>
+                                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                                </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
