@@ -100,3 +100,13 @@ TO 'etudiant'@'localhost';
 GRANT SELECT
 ON ppenr.specialite
 TO 'etudiant'@'localhost';
+
+CREATE USER 'accueil'@'localhost' IDENTIFIED BY 'accueil';
+
+GRANT SELECT
+ON ppenr.professeur
+TO 'accueil'@'localhost';
+
+GRANT SELECT
+ON ppenr.etudiant
+TO 'accueil'@'localhost';
