@@ -11,9 +11,9 @@
 // un message d'erreur si la connexion n'a pas réussi n'a pas réussi
 try {
    // $db = new PDO('mysql:host=localhost; dbname=ppenr; port=3306', 'root', '');
-    $db_accueil = new PDO('mysql:host=localhost; dbname=ppenr; port=3306; charset = utf-8', 'accueil', 'accueil');
-    $db_professeur = new PDO('mysql:host=localhost; dbname=ppenr; port=3306; charset = utf-8', 'professeur', 'professeur');
-    $db_etudiant = new PDO('mysql:host=localhost; dbname=ppenr; port=3306; charset = utf-8', 'etudiant', 'etudiant');
+    $db_accueil = new PDO('mysql:host=localhost; dbname=ppenr; port=3306; charset=utf8;', 'accueil', 'accueil');
+    $db_professeur = new PDO('mysql:host=localhost; dbname=ppenr; port=3306; charset=utf8;', 'professeur', 'professeur');
+    $db_etudiant = new PDO('mysql:host=localhost; dbname=ppenr; port=3306; charset=utf8;', 'etudiant', 'etudiant');
 }
 // si la connexion à la BDR n'a pas été effectuée , 
 //Avertissement de l'utilisateur cybersécurité???
