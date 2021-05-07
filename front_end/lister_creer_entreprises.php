@@ -87,8 +87,8 @@
         <div class="container">
         <div class="row">
           <div class="col-sm-12"> 
-            <button type="button" name="creer_entreprise" >
-            <a href="creer_entreprise.php" class="btn btn-block btn-primary btn-lg">Créer une nouvelle entreprise qui n'est pas dans la liste</a>
+            <button type="button" name="creer_entreprise" class="btn">
+            <a href="creer_entreprise.php" class="btn btn-block btn-primary btn-lg" >Créer une nouvelle entreprise qui n'est pas dans la liste</a>
             </button>
           </div>
         </div>
