@@ -38,7 +38,7 @@ $countDemarches= count($demarches);
 // connaitre un stage nécessite  non seulement de connaitre ces caractéristiques
 // mais aussi les caractéristiques de l'entreprise et les dates du stage utilisés
 // et le salarié contacté au sein de l'entreprise
-$stmt = $db->prepare(
+$stmt = $db_etudiant->prepare(
         "SELECT ID_STAGE,ENTREPRISE.ID_ENTREPRISE,DATE_FIN,DATE_DEBUT,NOM_ENTREPRISE,
             VILLE_ENTREPRISE,NOM_SALARIE,TEL_SALARIE,STATUT_CONVENTION
       	FROM stage,entreprise,etudiant,salarie
