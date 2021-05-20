@@ -10,6 +10,6 @@ foreach ($_POST as $key => $valeur) {
     $req->bindParam(":id_stage", $idstage);
     $req->bindParam(":etatstage",$radio);
     $req->execute();
-    header('Location: ../front_end/tdb_professeur.php');
 }
+header('Location: ../front_end/tdb_professeur.php');
 ?>
