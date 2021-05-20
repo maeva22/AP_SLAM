@@ -49,7 +49,7 @@ $countStageRefuse = count($stageRefuse);
 // Recherche des stages validés dans la même spécialité  
 // que celle du professeur connecté s'il est professeur de spécialité
 $stmt = $db_professeur->prepare(
-    "SELECT DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
+    "SELECT ETUDIANT.id_etudiant,DATE_FIN,DATE_DEBUT, NOM_ETUDIANT,
             PRENOM_ETUDIANT,NOM_ENTREPRISE,
             VILLE_ENTREPRISE,NOM_SALARIE,TEL_SALARIE,ETAT,STATUT_CONVENTION
       FROM stage,entreprise,etudiant,salarie,specialite 

@@ -7,7 +7,7 @@ include '../includes/header.php';
 include '../middlewares/professeur.php';
 include '../back_end/show-data_gen.php';
 include '../back_end/show-data_prof.php';
-include '../back_end/liste_etudiant_profref.php'
+include '../back_end/liste_etudiant_profref.php';
 
 ?>
 

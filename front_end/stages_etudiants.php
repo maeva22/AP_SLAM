@@ -110,7 +110,8 @@
                                     <td>'. $row2['DATE_FIN'] .'</td>
                                     <td>'. $row2['ETAT'] .'</td>
                                     <td>'. $row2['STATUT_CONVENTION'].'</td>
-                                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#supprimer_stage">Supprimer</button>
+                                    <td>'. $row2['id_etudiant'].'</td>
+                                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#supprimer_stage">Refuser</button>
                                     </td>
 
                                 </tr> 
@@ -128,14 +129,15 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form>
+                                <form action="../back_end/supprimer_stage.php" method="get">
                                 <div class="modal-body">
                                     <h5 class="card-title">Voulez-vous vraiment refusé le stage ? </h5><br />
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" value="supprimer_stage.php"class="btn btn-primary">Refuser</button>
-                                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                                    <input id="id_etudiant" name="id_etudiant" type="hidden" value='<?php echo $row2['id_etudiant']; ?>'>
+                                    <button type="submit" value="id_etudiant" class="btn btn-primary">Refuser</button>
+                                    
                                 </div>
                                 </form>
                             </div>
