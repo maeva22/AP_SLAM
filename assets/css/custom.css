@@ -237,7 +237,6 @@ html {
 }
 nav{
   position:relative;
-  z-index: 9999;
 }
 
 .nav-link{

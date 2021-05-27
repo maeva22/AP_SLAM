@@ -129,9 +129,11 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="../back_end/supprimer_stage.php" method="get">
+                                <form action="../back_end/supprimer_stage.php" method="post">
                                 <div class="modal-body">
-                                    <h5 class="card-title">Voulez-vous vraiment refusé le stage ? </h5><br />
+                                    <h5 class="card-title">Voulez-vous vraiment refuser le stage ? </h5><br />
+                                    Motif:
+                                    <input id = "motif" name="motif" type="text"></input>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
