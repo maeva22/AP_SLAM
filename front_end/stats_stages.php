@@ -14,6 +14,7 @@ include '../includes/barnav.php';
         <div class="lime-body">
             <div class="container">
                 <?php
+                /*Listes des départements selon leurs numéros*/
                 $t_departements = array();
                 $t_departements['01'] = 'Ain';
                 $t_departements['02'] = 'Aisne';
@@ -115,11 +116,22 @@ include '../includes/barnav.php';
                 $t_departements['974'] = 'La Réunion';
                 $t_departements['2A'] = 'Corse-du-Sud';
                 $t_departements['2B'] = 'Haute-Corse';
+                
+                /**
+                 * random_color_part
+                 * La fonction choisit un nombre entre 0 et 255 pour créer une couleur aléatoire et le transforme en hexadécimal
+                 * @return string
+                 */
                 function random_color_part()
                 {
                     return str_pad(dechex(mt_rand(0, 255)), 2, '0', STR_PAD_LEFT);
                 }
-
+                
+                /**
+                 * random_color
+                 * La fonction appélle trois frois la fonction de partie de couleur aléatoire afin de créer une couleur en hexadécimal
+                 * @return string
+                 */
                 function random_color()
                 {
                     $r = random_color_part();
@@ -130,6 +142,7 @@ include '../includes/barnav.php';
                 $labels = '';
                 $values = '';
                 $colors = '';
+                /*Parcours des lignes de la requête et formattage pour correspondre a chart.js*/
                 foreach ($stats_villes as $row) {
                     $labels = $labels . '"' . $row['labels'] . '",';
                     $values = $values . $row['nbville'] . ',';
@@ -142,7 +155,8 @@ include '../includes/barnav.php';
                 $labels2 = '';
                 $values2 = 0;
                 $colors2 = '';
-                $ancien = '';
+                $ancien = '';//Variable ancien permet de tester si on se trouve toujours dans le même département
+                /*Parcours des lignes de la requête et formattage pour correspondre a chart.js*/
                 foreach ($stats_departements as $row) {
                     if ($row['labels'] != $ancien) {
                         $labels2 = $labels2 . '"' . $t_departements[$row['labels']] . '",';
@@ -161,6 +175,7 @@ include '../includes/barnav.php';
                 $labels3 = '';
                 $values3 = 0;
                 $colors3 = '';
+                /*Parcours des lignes de la requête et formattage pour correspondre a chart.js*/
                 foreach ($stats_entreprises as $row) {
                     $labels3 = $labels3 . '"' . $row['labels'] . '",';
                     $values3 = $values3 . $row['nbentreprise'] . ',';
@@ -313,6 +328,9 @@ include '../includes/barnav.php';
                                 <div class="col-sm d-flex">
                                     <canvas class="doughnut-chart" id="doughnut-chart3">
                                         <script type="text/javascript">
+                                        /*
+                                        Utilisation de javascript afin de créer le diagramme
+                                        */ 
                                             var Chart3 = new Chart(document.getElementById("doughnut-chart3"), {
                                                 type: 'doughnut',
                                                 data: {
@@ -328,7 +346,7 @@ include '../includes/barnav.php';
                                                     legend: {
                                                         display: false,
                                                     },
-                                                    legendCallback: (chart) => {
+                                                    legendCallback: (chart) => { //exporte la légende afin de la réadapter avec bootstrap
                                                         const renderLabels = (chart) => {
                                                             const {
                                                                 data

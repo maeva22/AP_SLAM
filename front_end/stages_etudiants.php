@@ -67,7 +67,6 @@
                                     <td>'. $row2['DATE_FIN'] .'</td>
                                     <td>'. $row2['ETAT'] .'</td>
                                     <td>'. $row2['MOTIF'] .'</td>
-
                                 </tr> 
                                 '; } ?>
 
