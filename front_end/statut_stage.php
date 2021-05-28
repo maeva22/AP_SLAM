@@ -67,14 +67,14 @@
                         </div>
                         <div class="modal-body">
                         <h5 class="card-title">Stage d entreprise</h5><br />
-                        <form id = "modifier_stage" method="post">
+                        <form action = "../back_end/modifier_stage.php" method="post">
                             <div class="form-group">
                             <label for="date_debut">Date début</label>
-                            <input type="text" class="form-control" name="date_debut" aria-describedby="date_debut" placeholder="<?php echo $row['DATE_DEBUT']; ?>">
+                            <input type="text" class="form-control" name="date_debut" aria-describedby="date_debut" value ="<?php echo $row['DATE_DEBUT']; ?>"  placeholder="<?php echo $row['DATE_DEBUT']; ?>">
                             </div>
                             <div class="form-group">
                             <label for="date_fin">Date fin</label>
-                            <input type="text" class="form-control" name="date_fin" aria-describedby="date_fin" placeholder="<?php echo $row['DATE_FIN']; ?>">
+                            <input type="text" class="form-control" name="date_fin" aria-describedby="date_fin"  value ="<?php echo $row['DATE_FIN']; ?>" placeholder="<?php echo $row['DATE_FIN']; ?>">
                             </div>
 
                         
