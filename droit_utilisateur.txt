@@ -1,3 +1,4 @@
+DROP USER 'professeur'@'localhost';
 CREATE USER 'professeur'@'localhost'
 IDENTIFIED BY "professeur";
 
@@ -5,7 +6,7 @@ GRANT SELECT,UPDATE,DELETE
 ON ppenr.stage
 TO 'professeur'@'localhost';
 
-GRANT SELECT
+GRANT SELECT 
 ON ppenr.classe
 TO 'professeur'@'localhost';
 
@@ -25,7 +26,7 @@ GRANT SELECT
 ON ppenr.etre_contacter
 TO 'professeur'@'localhost';
 
-GRANT SELECT
+GRANT SELECT (ID_ETUDIANT,ID_PROF,ID_CLASSE,ID_SPECIALITE,NOM_ETUDIANT,PRENOM_ETUDIANT,ADR_ETUDIANT,CP_ETUDIANT,VILLE_ETUDIANT,EMAIL,TEL_ETUDIANT)
 ON ppenr.etudiant
 TO 'professeur'@'localhost';
 
@@ -53,9 +54,13 @@ GRANT SELECT
 ON ppenr.visiter
 TO 'professeur'@'localhost';
 
+GRANT SELECT,INSERT
+ON ppenr.motif_refus
+TO 'professeur'@'localhost';
+
+DROP USER 'etudiant'@'localhost';
 
 CREATE USER 'etudiant'@'localhost' IDENTIFIED BY 'etudiant';
-
 
 GRANT SELECT,update,insert,drop
 ON ppenr.stage
@@ -89,7 +94,7 @@ GRANT SELECT
 ON ppenr.moyencom
 TO 'etudiant'@'localhost';
 
-GRANT SELECT
+GRANT SELECT(NOM_PROF,PRENOM_PROF,EMAIL,TEL_PROF)
 ON ppenr.professeur
 TO 'etudiant'@'localhost';
 
