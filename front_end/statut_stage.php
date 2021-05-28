@@ -30,7 +30,7 @@
                         <!-- parcours des démarches issues de la BDR
                             et affichages des caractéristiques trouvées-->
                             <?php 
-                                 foreach( $stage as $row ) {  
+                                 foreach( $stage_ok as $row ) {  
                                     echo ' 
                                     <tr>
                                         <td>'. $row['NOM_ENTREPRISE'].'</td>
