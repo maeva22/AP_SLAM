@@ -1,7 +1,7 @@
 <?php
 
 require 'db.php';
-$stmt = $db_professeur->prepare("UPDATE STAGE set ETAT = 'RE' AND MOTIF = :motif where ID_ETUDIANT =:id");
+$stmt = $db_professeur->prepare("UPDATE STAGE set ETAT = 'RE', MOTIF =:motif where ID_ETUDIANT =:id");
 $stmt->bindValue(':id', $_POST['id_etudiant'], PDO::PARAM_INT);
 $stmt->bindValue(':motif',$_POST['motif'],PDO::PARAM_STR);
 $stmt->execute();
